@@ -17,6 +17,7 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string(255)
 #  last_sign_in_ip        :string(255)
+#  authentication_token   :string(255)
 #
 
 require 'spec_helper'
@@ -76,6 +77,13 @@ describe User do
     it {should_not be_valid}
   end
    
-  
+  describe "when authentication token is not unique" do
+    before do
+      @user.authentication_token = "test"
+      dup_user = @user.dup
+      dup_user.save
+    end
+    it {should_not be_valid}
+  end
 
 end

@@ -36,7 +36,7 @@ describe UsersController do
   
   before :each do
     @user = FactoryGirl.create(:user)
-    sign_in @user
+    sign_in @user 
   end
   
   describe "GET show" do
