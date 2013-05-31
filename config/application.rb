@@ -69,5 +69,9 @@ module TagGame
       g.javascripts = false
       g.helper = false
     end
+    
+    #Autoload lib files
+    config.autoload_paths += %W(#{config.root}/lib)
+    
   end
 end

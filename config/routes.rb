@@ -1,8 +1,11 @@
 TagGame::Application.routes.draw do
   
+  resources :games
+
+
   devise_for :users, :controllers => {sessions: 'sessions', registrations: 'registrations'}
   
-  root :to => "home#index"
+  root :to => "users#index"
   resources :users
 
 
