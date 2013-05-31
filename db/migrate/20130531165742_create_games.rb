@@ -3,7 +3,7 @@ class CreateGames < ActiveRecord::Migration
     create_table :games do |t|
       t.string :name
       t.integer :owner_id
-      t.integer :rounds
+      t.integer :num_rounds
 
       t.timestamps
     end

@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: games
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  owner_id   :integer
+#  num_rounds :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 require 'spec_helper'
 
 describe Game do
@@ -7,7 +19,7 @@ describe Game do
   subject {@game}
   
   it {should respond_to(:owner_id)}
-  it {should respond_to(:rounds)}
+  it {should respond_to(:num_rounds)}
   it {should respond_to(:name)}
   
   it {should respond_to(:owner)}
@@ -25,13 +37,21 @@ describe Game do
   end
   
   describe "when rounds is not present" do
-    before {@game.rounds = nil}
+    before {@game.num_rounds = nil}
     it {should_not be_valid}
   end
   
   describe "should have the correct owner" do
     let(:user) {User.find(@game.owner_id)}
     its(:owner) {should == user}
+  end
+  
+  #TODO: Test function
+  describe "current round" do
+  end
+  
+  #TODO: Test function
+  describe "previous round" do
   end
   
 

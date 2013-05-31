@@ -1,5 +1,8 @@
 TagGame::Application.routes.draw do
   
+  resources :rounds
+
+
   resources :games
 
 

@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>State:</b>
+  <%= @round.state %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @round.category %>
+</p>
+
+<p>
+  <b>Game:</b>
+  <%= @round.game_id %>
+</p>
+
+<p>
+  <b>Card state:</b>
+  <%= @round.card_state %>
+</p>
+
+<p>
+  <b>Vote state:</b>
+  <%= @round.vote_state %>
+</p>
+
+
+<%= link_to 'Edit', edit_round_path(@round) %> |
+<%= link_to 'Back', rounds_path %>
