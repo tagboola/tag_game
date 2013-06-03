@@ -33,4 +33,7 @@ class User < ActiveRecord::Base
   
   before_save :ensure_authentication_token
   
+  has_many :contestants, :dependent => :destroy
+
+  
 end

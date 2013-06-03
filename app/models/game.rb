@@ -19,16 +19,17 @@ class Game < ActiveRecord::Base
   
   belongs_to :owner, :class_name => "User", :foreign_key => "owner_id"
   has_many :rounds, :dependent => :destroy
-  # has_many :contestants, :dependent => :destroy
+  has_many :contestants, :dependent => :destroy
+  
   # has_one :game_apn_group
   # has_one :apn_group, :through => :game_apn_group
   
-  def current_round
-    return self.rounds.find_by_state(0)
-  end
+  # def current_round
+    # return self.rounds.find_by_state(0)
+  # end
 
-  def previous_round
-    return self.rounds.where('state = 1').order('id desc').first
-  end
+  # def previous_round
+    # return self.rounds.where('state = 1').order('id desc').first
+  # end
   
 end

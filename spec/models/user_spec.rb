@@ -43,6 +43,8 @@ describe User do
   it {should respond_to(:current_sign_in_ip)}
   it {should respond_to(:last_sign_in_ip)}
   
+  it {should respond_to(:contestants)}
+  
   it {should be_valid}
   
   describe "when name is not present" do
@@ -85,5 +87,22 @@ describe User do
     end
     it {should_not be_valid}
   end
+  
+  describe 'it should have the correct' do
+    let(:contestant) {@user.contestants.new(game_id: 1)}
+    its(:contestants) {should == [contestant]}
+  end
+  
+  describe 'deleting a user' do
+    before do
+      @user.save
+      @contestant = FactoryGirl.create(:contestant, :user_id => @user.id)
+      @user.destroy
+    end
+    it 'should destroy the contestant' do
+      expect { @contestant.reload }.to raise_error(ActiveRecord::RecordNotFound)
+    end
+  end
+  
 
 end

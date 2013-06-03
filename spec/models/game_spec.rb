@@ -18,9 +18,9 @@ describe Game do
   
   subject {@game}
   
+  it {should respond_to(:name)}
   it {should respond_to(:owner_id)}
   it {should respond_to(:num_rounds)}
-  it {should respond_to(:name)}
   
   it {should respond_to(:owner)}
   
@@ -36,22 +36,39 @@ describe Game do
     it {should_not be_valid}
   end
   
-  describe "when rounds is not present" do
+  describe "when number of rounds is not present" do
     before {@game.num_rounds = nil}
     it {should_not be_valid}
   end
   
-  describe "should have the correct owner" do
+  describe "should have the correct" do
     let(:user) {User.find(@game.owner_id)}
     its(:owner) {should == user}
   end
   
-  #TODO: Test function
-  describe "current round" do
+  describe "should have the correct" do
+    let(:round) {@game.rounds.new(category: 'test', game_id: @game.id)}
+    its(:rounds) {should == [round]}
   end
   
-  #TODO: Test function
-  describe "previous round" do
+  describe "should have the correct" do
+    let(:contestant) {@game.contestants.new(user_id: 1)}
+    its(:contestants) {should == [contestant]} 
+  end
+  
+  describe 'deleting a game' do
+    before do
+      @game.save
+      @round = FactoryGirl.create(:round, :game_id => @game.id)
+      @contestant = FactoryGirl.create(:contestant, :game_id => @game.id)
+      @game.destroy
+    end
+    it 'should destroy the round' do
+      expect { @round.reload }.to raise_error(ActiveRecord::RecordNotFound)
+    end
+    it 'should destroy the contestant' do
+      expect { @contestant.reload }.to raise_error(ActiveRecord::RecordNotFound)
+    end
   end
   
 

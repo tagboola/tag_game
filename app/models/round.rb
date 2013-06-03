@@ -23,7 +23,7 @@ class Round < ActiveRecord::Base
   # after_save :round_closed?
   
   #Associations
-   belongs_to :game
+  belongs_to :game
   # has_many :tickets, :dependent => :destroy
   # has_many :cards, :dependent => :destroy
   # has_many :candidates, :through => :cards

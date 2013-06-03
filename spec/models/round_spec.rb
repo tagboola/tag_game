@@ -16,7 +16,7 @@ require 'spec_helper'
 
 describe Round do
   
-  before {@round  = FactoryGirl.create(:round)}
+  before {@round  = FactoryGirl.build(:round)}
   
   subject {@round}
   
@@ -41,7 +41,10 @@ describe Round do
   end
   
   describe 'deleting a game' do
-    before {@round.game.destroy}
+    before do
+      @round.save
+      @round.game.destroy
+    end
     it 'should destroy the round' do
       expect { @round.reload }.to raise_error(ActiveRecord::RecordNotFound)
     end
