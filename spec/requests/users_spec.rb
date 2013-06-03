@@ -28,6 +28,7 @@ describe "Users" do
       response.body.should == '{"error" : "unauthorized"}'
     end
     
+    #TODO: Test view-based signing in as well
     # it "should log in correctly" do
       # visit "/users/sign_in"
       # fill_in "Email", :with => @user.email
@@ -58,6 +59,7 @@ describe "Users" do
       response.body.should have_content('"success":false')
     end
     
+    #TODO: Test view-based signing in as well
     # # it "should register correctly" do
       # # visit "/users/sign_up"
       # # # fill_in "First name", :with => @user.first_name
@@ -85,23 +87,24 @@ describe "Users" do
   
   end
   
-  describe "Authorized User Requests" do
-
-    before :each do
-      user = FactoryGirl.create(:user)
-      login_as user, scope: :user
-    end
-
-    it "should GET /users" do
-      get "/users"
-      response.status.should be(200)
-    end
-    
-    it "should GET /users.json" do
-      get "/users.json"
-      response.status.should be(200)
-    end
-
-  end
+#   
+  # describe "Authorized User Requests" do
+# 
+    # before :each do
+      # user = FactoryGirl.create(:user)
+      # login_as user, scope: :user
+    # end
+# 
+    # it "should GET /users" do
+      # get "/users"
+      # response.status.should be(200)
+    # end
+#     
+    # it "should GET /users.json" do
+      # get "/users.json"
+      # response.status.should be(200)
+    # end
+# 
+  # end
 
 end

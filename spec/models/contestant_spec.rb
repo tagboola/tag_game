@@ -24,25 +24,4 @@ describe Contestant do
     it {should_not be_valid}
   end
   
-  describe "deleting a user" do
-    before do
-      @contestant.save
-      @contestant.user.destroy
-    end
-    it 'should destroy the contestant' do
-      expect {@contestant.reload }.to raise_error(ActiveRecord::RecordNotFound)
-    end
-  end
-  
-  describe "deleting a game" do
-    before do
-      @contestant.save
-      @contestant.game.destroy
-    end
-    it "should destroy the contestant" do
-      expect {@contestant.reload}.to raise_error(ActiveRecord::RecordNotFound)
-    end
-  end
-  
-  
 end

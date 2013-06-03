@@ -17,23 +17,23 @@ describe "Rounds" do
     
   end
   
-  describe "Authorized Game Requests" do
-    
-    before :each do
-      user = FactoryGirl.create(:user)
-      login_as user, scope: :user  
-    end
-    
-    it "should GET /rounds" do
-      get "/rounds"
-      response.status.should be(200)
-    end
-    
-    it "should GET /rounds" do
-      get "/rounds.json"
-      response.status.should be(200)
-    end
-    
-  end
+  # describe "Authorized Game Requests" do
+#     
+    # before :each do
+      # user = FactoryGirl.create(:user)
+      # login_as user, scope: :user  
+    # end
+#     
+    # it "should GET /rounds" do
+      # get "/rounds"
+      # response.status.should be(200)
+    # end
+#     
+    # it "should GET /rounds" do
+      # get "/rounds.json"
+      # response.status.should be(200)
+    # end
+#     
+  # end
 
 end

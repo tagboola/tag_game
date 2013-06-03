@@ -40,14 +40,4 @@ describe Round do
     its(:game) {should == game}
   end
   
-  describe 'deleting a game' do
-    before do
-      @round.save
-      @round.game.destroy
-    end
-    it 'should destroy the round' do
-      expect { @round.reload }.to raise_error(ActiveRecord::RecordNotFound)
-    end
-  end
-  
 end
