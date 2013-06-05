@@ -1,8 +1,8 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :contestant do
-    user
-    game
+  factory :card do
+    round
+    contestant
   end
 end

@@ -6,7 +6,7 @@ describe "Users" do
   describe 'Logging In' do
     
     before :each do
-      @user = FactoryGirl.create(:user)
+      @user = FactoryGirl.create(:login_user)
       @attr = {:user => {:email => "user@example.com", :password => "password"}}
     end
     
@@ -53,7 +53,7 @@ describe "Users" do
     end
     
     it 'should not register correctly with duplicate emails' do
-      FactoryGirl.create(:user)
+      FactoryGirl.create(:login_user)
       post "/users.json", @attr
       response.status.should be(200)
       response.body.should have_content('"success":false')

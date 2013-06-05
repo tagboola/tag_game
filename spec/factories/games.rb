@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :game do
     name "Game"
-    association :owner, factory: :user, email: "user2@example.com"
+    association :owner, factory: :user
     num_rounds 1
   end
 end

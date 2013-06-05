@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: contestants
+#
+#  id         :integer          not null, primary key
+#  user_id    :integer
+#  game_id    :integer
+#  state      :integer          default(0)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Contestant < ActiveRecord::Base
   attr_accessible :game_id, :state, :user_id
   
@@ -10,7 +22,7 @@ class Contestant < ActiveRecord::Base
   # has_many :candidates
   # has_many :ballots
   # has_many :tickets, :dependent => :destroy
-  # has_many :cards, :dependent => :destroy
+  has_many :cards, :dependent => :destroy
   
   has_one :current_round, :source => 'rounds', :class_name => 'Round', :through => :game, :conditions => 'state = 0'
   # has_one :active_card, :class_name => 'Card', :conditions => 'state = 0'

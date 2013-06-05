@@ -29,7 +29,7 @@ describe RoundsController do
   end
   
   before :each do
-    @user = FactoryGirl.create(:user)
+    @user = FactoryGirl.create(:login_user)
     sign_in @user
   end
 

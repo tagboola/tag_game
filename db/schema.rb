@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130531222635) do
+ActiveRecord::Schema.define(:version => 20130603210100) do
+
+  create_table "cards", :force => true do |t|
+    t.integer  "round_id"
+    t.integer  "contestant_id"
+    t.integer  "state",         :default => 0
+    t.integer  "card_state",    :default => 0
+    t.integer  "vote_state",    :default => 0
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+  end
 
   create_table "contestants", :force => true do |t|
     t.integer  "user_id"

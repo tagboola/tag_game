@@ -13,7 +13,5 @@ describe "Contestants" do
       get "/contestants.json"
       response.status.should be(401)  
     end
-    
   end
-  
 end

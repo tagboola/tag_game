@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :round do
-    category "MyString"
+    category "Category"
     association :game, factory: :game
     card_state 1
     vote_state 1

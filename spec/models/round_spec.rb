@@ -27,6 +27,7 @@ describe Round do
   it {should respond_to(:vote_state)}
   
   it {should respond_to(:game)}
+  it {should respond_to(:cards)}
 
   it {should be_valid}
   
@@ -38,6 +39,17 @@ describe Round do
   describe 'should have the correct game' do
     let(:game) {Game.find(@round.game_id)}
     its(:game) {should == game}
+  end
+  
+  describe 'deleting a round' do
+    before do
+      @round.save
+      @card = FactoryGirl.create(:card, round_id: @round.id)
+      @round.destroy
+    end
+    it 'should destroy the card' do
+      expect { @card.reload }.to raise_error(ActiveRecord::RecordNotFound)
+    end
   end
   
 end

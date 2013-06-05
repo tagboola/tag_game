@@ -25,7 +25,7 @@ class Round < ActiveRecord::Base
   #Associations
   belongs_to :game
   # has_many :tickets, :dependent => :destroy
-  # has_many :cards, :dependent => :destroy
+  has_many :cards, :dependent => :destroy
   # has_many :candidates, :through => :cards
   # has_many :ballots, :through => :tickets
   

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Round:</b>
+  <%= @card.round_id %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @card.state %>
+</p>
+
+<p>
+  <b>Card state:</b>
+  <%= @card.card_state %>
+</p>
+
+<p>
+  <b>Vote state:</b>
+  <%= @card.vote_state %>
+</p>
+
+
+<%= link_to 'Edit', edit_card_path(@card) %> |
+<%= link_to 'Back', cards_path %>

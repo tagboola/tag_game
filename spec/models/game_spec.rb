@@ -56,11 +56,11 @@ describe Game do
     its(:contestants) {should == [contestant]} 
   end
   
-  describe 'deleting a game' do
+  describe 'destroy' do
     before do
       @game.save
-      @round = FactoryGirl.create(:round, :game_id => @game.id)
-      @contestant = FactoryGirl.create(:contestant, :game_id => @game.id)
+      @round = FactoryGirl.create(:round, game_id: @game.id)
+      @contestant = FactoryGirl.create(:contestant, game_id: @game.id)
       @game.destroy
     end
     it 'should destroy the round' do
